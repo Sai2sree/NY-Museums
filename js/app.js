@@ -145,13 +145,18 @@ this.populateInfoWindow = function(marker, infowindow) {
     self.name = results.name;
     self.street = results.location.formattedAddress[0];
     self.city = results.location.formattedAddress[1];
-    self.country = results.location.formattedAddress[2]; 
+    self.country = results.location.formattedAddress[2];
+    self.venueId = results.id; 
 
     self.htmlContent = '<ul><li><strong>' + self.name + '</strong></li>' +
                          '<li>' + self.street + '</li>'+
                          '<li>' + self.city + '</li>'+
                          '<li>' + self.country + '</li></ul>';               
-    
+    var fourSquarePhotoURL = 'https://api.foursquare.com/v2/venues/'
+                             + self.venueId + '/photos?limit=1&'
+                             + 'client_id=' + clientId + '&client_secret='
+                             + clientSecret + '&v=20170801'
+
   infowindow.setContent(self.htmlContent);
 
   }).fail(function(){
