@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Neighborhood Maps</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      
+    <div class="row">
+
+     <div id="header">
+      
+       <div class="col-md-1">
+          <img src="images/menu-icon.jpg" alt="menu-icon" id="toggle">
+       </div>
+       <div class="col-md-4"></div>
+       <div class="col-md-7">
+          <h1>New York Museums</h1>
+       </div>
+
+     </div>
+    
+    </div>
+
+    <div class="row">
+    
+      <div class="options-box" id="text">
+        <div>
+          <input id="show-listings" type="button" value="Show Markers">
+          <input id="hide-listings" type="button" value="Hide Markers">
+        </div>
+            <input class="search" data-bind="textInput: query, valueUpdate: 'afterkeydown'" placeholder="Search Locations..">
+        <div>
+            <ul data-bind="foreach: locationsFilter">
+            <li data-bind="text: name, click: $parent.showMarkerInfo"></li>
+            </ul>
+       </div>
+        </div> 
+      </div>
+    </div>
+     <div id="map"></div>
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/knockout-3.4.2.js"></script>  
+    <script src="js/app.js"></script>  
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbJMG13aGtozNEc5jdOxAbj87FprhV9OY&v=3&callback=startApp" onerror="googleErrorHandling()">
+    </script>
+
+  </body>
+</html>
