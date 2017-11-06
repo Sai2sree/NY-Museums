@@ -30,3 +30,4 @@ Clone or download all the files in this repository and open ``index.html`` file 
 - jQuery documentation
 - Foursquare documentation
 - Udacity's [JavaScript Design Patterns](https://www.udacity.com/course/javascript-design-patterns--ud989) course.
+- Udacity's [Google Maps API](https://www.udacity.com/course/google-maps-apis--ud864) course.
