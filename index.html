@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Neighborhood Maps</title>
     <meta charset="UTF-8">
+    <!-- Mobile Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Style sheets -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
@@ -15,6 +17,7 @@
      <div id="header">
       
        <div class="col-md-1">
+       	<!-- Hamburger Icon -->
           <img src="images/menu-icon.jpg" alt="menu-icon" id="toggle">
        </div>
        <div class="col-md-4"></div>
@@ -30,26 +33,41 @@
     
       <div class="options-box" id="text">
         <div>
+          <!-- Show Museums -->
           <input id="show-listings" type="button" value="Show Markers">
+          <!-- Hide Museums -->
           <input id="hide-listings" type="button" value="Hide Markers">
         </div>
+        <!-- Search box -->
             <input class="search" data-bind="textInput: query, valueUpdate: 'afterkeydown'" placeholder="Search Locations..">
+        
         <div>
+        <!-- Use Knockout for data-bindings and filtering locations -->
             <ul data-bind="foreach: locationsFilter">
             <li data-bind="text: name, click: $parent.showMarkerInfo"></li>
             </ul>
        </div>
+       
        <figure>
+       	<!-- Foursquare Attribution -->
        	<p>powered by:</p>
        	<img src="https://lh3.googleusercontent.com/81tvpT59weJbOGWT9jQ8_9RtcGXKCcVv59BU7Wl6PnS7okIgrS4iTCgwWpPQY2FRKw=w300" alt="Foursquare">oursquare
        </figure>
         </div> 
       </div>
     </div>
+    <!-- Google Map -->
      <div id="map"></div>
+     
+     <!-- Scripts -->
+
+     <!-- jQuery -->
     <script src="js/lib/jquery.js"></script>
-    <script src="js/lib/knockout-3.4.2.js"></script>  
-    <script src="js/app.js"></script>  
+    <!-- Knockout for data-bindings and filtering locations -->
+    <script src="js/lib/knockout-3.4.2.js"></script>
+    <!-- App's main js -->  
+    <script src="js/app.js"></script>
+    <!-- For Google Maps API -->  
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbJMG13aGtozNEc5jdOxAbj87FprhV9OY&v=3&callback=startApp" onerror="googleErrorHandling()">
     </script>
