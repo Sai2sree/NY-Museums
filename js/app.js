@@ -1,9 +1,7 @@
 
 // Model
 
-// These are the real estate listings that will be shown to the user.
-// Normally we'd have these in a database instead.
-
+// These are the New York museums that will be shown to the user.
 
 var locations = [
           {
@@ -49,6 +47,7 @@ var locations = [
     ];
 
 
+// View Model
 
 var map;
 
@@ -148,17 +147,15 @@ this.populateInfoWindow = function(marker, infowindow) {
     self.country = results.location.formattedAddress[2];
     self.venueId = results.id; 
 
+  // construct info window details using Foursquare variables.
     self.htmlContent = '<ul><li><strong>' + self.name + '</strong></li>' +
                          '<li>' + self.street + '</li>'+
                          '<li>' + self.city + '</li>'+
                          '<li>' + self.country + '</li></ul>';               
-    var fourSquarePhotoURL = 'https://api.foursquare.com/v2/venues/'
-                             + self.venueId + '/photos?limit=1&'
-                             + 'client_id=' + clientId + '&client_secret='
-                             + clientSecret + '&v=20170801'
 
   infowindow.setContent(self.htmlContent);
-
+  
+  // Handle the data requests that fail by showing some visible indication on the page.
   }).fail(function(){
    alert("There was an issue with the Foursquare API call. Please refresh the page and try again.");
   });
@@ -196,7 +193,7 @@ this.locationsFilter = ko.computed(function() {
     return locations;
 }, this);
 
-//This function populates infoWindow when the corresponding location in the list is clicked.
+// This function populates infoWindow when the corresponding location in the list is clicked.
 this.showMarkerInfo = function() {
         self.populateInfoWindow(this, self.largeInfoWindow);
         this.setAnimation(google.maps.Animation.BOUNCE);
@@ -205,12 +202,13 @@ this.showMarkerInfo = function() {
     };
   
 };
-
+ 
+ // This function toggles the visibility of left side bar.
   $( "#toggle" ).click(function() {
   $( "#text" ).fadeToggle( "fast", "linear" );
 });
 
-
+// Handle the data requests that fail by showing some visible indication on the page.
 googleError = function googleError() {
   alert('Oops!! Google Maps did not load. Please refresh the page and try again!');
 };
