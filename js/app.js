@@ -64,14 +64,14 @@ for (var i = 0; i < self.markers.length; i++) {
   bounds.extend(self.markers[i].position);
 }
 map.fitBounds(bounds);
-}
+};
 
 // This function will loop through the listings and hide them all.
 this.hideListings = function() {
 for (var i = 0; i < self.markers.length; i++) {
   self.markers[i].setMap(null);
 }
-}
+};
 
 // This function populates the infowindow when the marker is clicked. We'll only allow
 // one infowindow which will open at the marker that is clicked, and populate based
@@ -133,10 +133,10 @@ this.populateInfoWindow = function(marker, infowindow) {
   clientId = 'BPHIHI4RMCH5LAZ1HSM0FY1GNMR2EEX4ZPPB4YFXXZOEEZOF';
   clientSecret = 'EBTSLFFSCJ5UFZREVDK2XFY1DFXP4NFNTZZ0K3L0I12GOZAQ';
   //Foursquare API URL to call
-  var fourSquareURL = 'https://api.foursquare.com/v2/venues/search?ll='
-                       + marker.lat + ',' + marker.lng + '&client_id='
-                       + clientId + '&client_secret=' + clientSecret
-                       + '&v=20170801' + '&query=' + marker.name;
+  var fourSquareURL = 'https://api.foursquare.com/v2/venues/search?ll=' + 
+                       marker.lat + ',' + marker.lng + '&client_id=' +
+                       clientId + '&client_secret=' + clientSecret +
+                       '&v=20170801' + '&query=' + marker.name;
   
   // This Foursquare API gets data from Foursquare and stores it in its variables.
   $.getJSON(fourSquareURL).done(function(marker){
