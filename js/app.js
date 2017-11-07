@@ -73,6 +73,14 @@ for (var i = 0; i < self.markers.length; i++) {
 }
 };
 
+this.showMarkerInfo = function() {
+        self.populateInfoWindow(this, self.largeInfoWindow);
+        this.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function(){this.setAnimation(null);}.bind(this),1000);
+
+    };
+
+
 // This function populates the infowindow when the marker is clicked. We'll only allow
 // one infowindow which will open at the marker that is clicked, and populate based
 // on that markers position.
@@ -115,12 +123,6 @@ for (var i = 0; i < locations.length; i++) {
 }
 
 // This function populates infoWindow when the corresponding location in the list is clicked.
-this.showMarkerInfo = function() {
-        self.populateInfoWindow(this, self.largeInfoWindow);
-        this.setAnimation(google.maps.Animation.BOUNCE);
-        setTimeout(function(){this.setAnimation(null);}.bind(this),1000);
-
-    };
 
  };
 
