@@ -85,7 +85,6 @@ map = new google.maps.Map(document.getElementById('map'), {
   mapTypeControl: false
 });
 
-
 this.largeInfoWindow = new google.maps.InfoWindow();
 
 // Create a new blank array for all the listing markers.
@@ -112,12 +111,16 @@ for (var i = 0; i < locations.length; i++) {
   // Show markers on the map.
   self.showListings();
   // Create an onclick event to open an infowindow at each marker.
-  this.marker.addListener('click', function() {
-    self.populateInfoWindow(this, self.largeInfoWindow);
-    this.setAnimation(google.maps.Animation.BOUNCE);
-    setTimeout(function(){this.setAnimation(null);}.bind(this),1000);
-  });
+  this.marker.addListener('click', this.showMarkerInfo);
 }
+
+// This function populates infoWindow when the corresponding location in the list is clicked.
+this.showMarkerInfo = function() {
+        self.populateInfoWindow(this, self.largeInfoWindow);
+        this.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function(){this.setAnimation(null);}.bind(this),1000);
+
+    };
 
  };
 
@@ -193,13 +196,6 @@ this.locationsFilter = ko.computed(function() {
     return locations;
 }, this);
 
-// This function populates infoWindow when the corresponding location in the list is clicked.
-this.showMarkerInfo = function() {
-        self.populateInfoWindow(this, self.largeInfoWindow);
-        this.setAnimation(google.maps.Animation.BOUNCE);
-        setTimeout(function(){this.setAnimation(null);}.bind(this),1000);
-
-    };
   
 };
  
