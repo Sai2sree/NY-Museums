@@ -1,5 +1,5 @@
 # Neighborhood-Maps-Project
-This web app is a project for the Udacity [FSND Course](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004). View the App live [here](https://sai2sree.github.io/Neighborhood-Maps-Project/)
+This web app is a project for the Udacity [FSND Course](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004). View the App live [here](https://sai2sree.github.io/NY-Museums/)
 
 ## Project Overview
 Developed a single page application featuring a map of New York museums I would like to visit. Also added functionality to this map including highlighted locations, third-party data about those locations and various ways to browse the content. All application components are usable across modern desktop, tablet, and phone browsers. 
